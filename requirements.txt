@@ -3,3 +3,6 @@ flask-socketio
 eventlet
 flask-login
 werkzeug
+flask-cors
+requests
+cryptography
