@@ -6,3 +6,4 @@ werkzeug
 flask-cors
 requests
 cryptography
+pycryptodome
