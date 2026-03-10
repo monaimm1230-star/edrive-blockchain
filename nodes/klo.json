@@ -1,0 +1,42 @@
+{
+    "username": "klo",
+    "balance": 9500.0,
+    "txs": [
+        {
+            "id": "4c00865a-1d3d-4629-878a-50bd6ec88702",
+            "from": "klo",
+            "to": "aqib",
+            "amount": 20.0,
+            "note": "enk",
+            "ts": 1765567104061,
+            "direction": "debit"
+        },
+        {
+            "id": "9c885fe9-26fd-4ffa-9d76-a0b172824840",
+            "from": "klo",
+            "to": "ashiq",
+            "amount": 50.0,
+            "note": ".",
+            "ts": 1765569742316,
+            "direction": "debit"
+        },
+        {
+            "id": "bfe55d59-0f00-4a87-b61d-d10b166dcf1e",
+            "from": "klo",
+            "to": "ashiq",
+            "amount": 50.0,
+            "note": ".",
+            "ts": 1765569744840,
+            "direction": "debit"
+        },
+        {
+            "id": "50f027f9-96ec-4bb7-8464-4764db97effa",
+            "from": "klo",
+            "to": "aqib",
+            "amount": 76.0,
+            "note": ".",
+            "ts": 1765569763293,
+            "direction": "debit"
+        }
+    ]
+}

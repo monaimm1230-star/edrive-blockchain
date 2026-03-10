@@ -1,0 +1,33 @@
+{
+  "balance": 256555.0,
+  "txs": [
+    {
+      "id": "4ea6987a-8c3f-4e83-83e8-59805dbf9c9b",
+      "from": "mustafa",
+      "to": "aqib",
+      "amount": 2525.0,
+      "note": "lele",
+      "ts": 1764935754360,
+      "direction": "debit"
+    },
+    {
+      "id": "7c9d26c0-8c6f-478a-87d7-592cbba3ec6b",
+      "from": "mustafa",
+      "to": "aqib",
+      "amount": 10.0,
+      "note": "",
+      "ts": 1764936883957,
+      "direction": "debit"
+    },
+    {
+      "id": "2f7ded37-8ef9-4427-927b-668a493cda95",
+      "from": "hamza",
+      "to": "mustafa",
+      "amount": 6565.0,
+      "note": "lolo",
+      "ts": 1765528211565,
+      "direction": "credit"
+    }
+  ],
+  "owner": "mustafa"
+}

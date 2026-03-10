@@ -1,0 +1,24 @@
+{
+  "owner": "duk",
+  "balance": 65991821822.0,
+  "txs": [
+    {
+      "id": "8edd3b50-ee87-4734-9a78-cee75f6ff774",
+      "from": "duk",
+      "to": "aqib",
+      "amount": 6523.0,
+      "note": "6523",
+      "ts": 1765538687440,
+      "direction": "debit"
+    },
+    {
+      "id": "60c8a86e-1536-4d3e-a493-f0b9c61ab492",
+      "from": "quk",
+      "to": "duk",
+      "amount": 6565656.0,
+      "note": "h",
+      "ts": 1765538802568,
+      "direction": "credit"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "balance": 659520.0,
+  "txs": [
+    {
+      "id": "647b4aa9-ae98-4d20-92de-970bf671ed4e",
+      "from": "missmoganza",
+      "to": "aqib",
+      "amount": 6.0,
+      "note": "mister",
+      "ts": 1765537685300,
+      "direction": "debit"
+    }
+  ],
+  "owner": "missmoganza",
+  "node_hash": null
+}

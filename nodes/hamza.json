@@ -1,0 +1,114 @@
+{
+  "balance": 2343108.0,
+  "txs": [
+    {
+      "id": "265f1796-d48d-4a98-8c39-64214f036ce0",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 200.0,
+      "note": ".",
+      "ts": 1765524673093,
+      "direction": "debit"
+    },
+    {
+      "id": "25703ff7-0d76-4189-baef-e6982d6ccd10",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 5056.0,
+      "note": ".",
+      "ts": 1765528067162,
+      "direction": "debit"
+    },
+    {
+      "id": "2f7ded37-8ef9-4427-927b-668a493cda95",
+      "from": "hamza",
+      "to": "mustafa",
+      "amount": 6565.0,
+      "note": "lolo",
+      "ts": 1765528211565,
+      "direction": "debit"
+    },
+    {
+      "id": "4396eb1c-e111-488f-be7c-b4b6f02908b1",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 203.0,
+      "note": "/",
+      "ts": 1765529711650,
+      "direction": "debit"
+    },
+    {
+      "id": "59b8b746-58d5-4d00-99d7-5730c858e567",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 203.0,
+      "note": "/",
+      "ts": 1765529749240,
+      "direction": "debit"
+    },
+    {
+      "id": "611a19a5-ebdd-4217-a7a0-fc211424dc79",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 83.0,
+      "note": ".",
+      "ts": 1765530169655,
+      "direction": "debit"
+    },
+    {
+      "id": "90828242-409d-4dac-905b-69023ba42a7b",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 30.0,
+      "note": ".",
+      "ts": 1765530399839,
+      "direction": "debit"
+    },
+    {
+      "id": "181ceb58-bcfe-41dd-8aa1-34bd1feae49b",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 25.0,
+      "note": "02",
+      "ts": 1765530744652,
+      "direction": "debit"
+    },
+    {
+      "id": "14a60366-ded3-42a2-a0d6-1d3ec5562cdb",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 65.0,
+      "note": "65",
+      "ts": 1765531071035,
+      "direction": "debit"
+    },
+    {
+      "id": "9c250d1c-dae9-4755-b0fd-501efc9f5eff",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 579.0,
+      "note": ".0",
+      "ts": 1765531469534,
+      "direction": "debit"
+    },
+    {
+      "id": "4a8783ed-d5a1-4b12-8c2d-eab86f6c384e",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 59.0,
+      "note": "2",
+      "ts": 1765531710204,
+      "direction": "debit"
+    },
+    {
+      "id": "08952e60-47ed-49fe-8ed5-bb5422440fc7",
+      "from": "hamza",
+      "to": "aqib",
+      "amount": 59.0,
+      "note": "2",
+      "ts": 1765531711187,
+      "direction": "debit"
+    }
+  ],
+  "owner": "hamza"
+}

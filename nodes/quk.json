@@ -1,0 +1,15 @@
+{
+  "owner": "quk",
+  "balance": 9.999999999343434e+16,
+  "txs": [
+    {
+      "id": "60c8a86e-1536-4d3e-a493-f0b9c61ab492",
+      "from": "quk",
+      "to": "duk",
+      "amount": 6565656.0,
+      "note": "h",
+      "ts": 1765538802568,
+      "direction": "debit"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "username": "monaim",
+    "display": "monaim",
+    "password": "scrypt:32768:8:1$Tq6emvGN11Q93b9w$69d10da68a0ca33807663f46e7e42fd0a3a763fa4021dbdc37eeaa464f16c54136a347de2b464b0070294d5690b72a608e975eb45d4b245809022ca0d7fe0c39",
+    "balance": 1500.0,
+    "transactions": []
+}

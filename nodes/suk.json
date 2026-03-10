@@ -1,0 +1,33 @@
+{
+  "owner": "suk",
+  "balance": 6.666666666666666e+35,
+  "txs": [
+    {
+      "id": "5118055c-b3c0-4c24-b927-0dce23e0975f",
+      "from": "suk",
+      "to": "aqib",
+      "amount": 5555.0,
+      "note": "0",
+      "ts": 1765538218275,
+      "direction": "debit"
+    },
+    {
+      "id": "bc4825dd-9a21-4d79-9894-d13b0ed34a1d",
+      "from": "suk",
+      "to": "aqib",
+      "amount": 656.0,
+      "note": "enj",
+      "ts": 1765538358315,
+      "direction": "debit"
+    },
+    {
+      "id": "35aa0472-1a8b-45f5-90f8-f0292af09042",
+      "from": "suk",
+      "to": "aqib",
+      "amount": 656.0,
+      "note": "60",
+      "ts": 1765538608102,
+      "direction": "debit"
+    }
+  ]
+}

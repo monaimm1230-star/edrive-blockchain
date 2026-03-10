@@ -1,0 +1,39 @@
+
+import hashlib
+try:
+    from Crypto.Cipher import AES
+except Exception:
+    AES = None
+import base64, os
+from arm256_with_aes import encrypt_text, decrypt_text, arm256_hexdigest
+
+def arm256_hexdigest(s: str) -> str:
+    # Placeholder: use sha256 to represent ARM256 digest for compatibility
+    h = hashlib.sha256()
+    h.update(s.encode('utf-8'))
+    return h.hexdigest()
+
+def encrypt_text(plaintext: str, password: str) -> str:
+    # Simple AES-256-CBC with key derived from password (not production secure)
+    if AES is None:
+        # fallback: base64 encode (insecure) to avoid breaking code if pycryptodome not installed
+        return base64.b64encode(plaintext.encode('utf-8')).decode('utf-8')
+    key = hashlib.sha256(password.encode('utf-8')).digest()
+    iv = os.urandom(16)
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    pad_len = 16 - (len(plaintext) % 16)
+    padded = plaintext + chr(pad_len)*pad_len
+    ct = cipher.encrypt(padded.encode('utf-8'))
+    return base64.b64encode(iv+ct).decode('utf-8')
+
+def decrypt_text(ciphertext_b64: str, password: str) -> str:
+    if AES is None:
+        return base64.b64decode(ciphertext_b64).decode('utf-8')
+    key = hashlib.sha256(password.encode('utf-8')).digest()
+    raw = base64.b64decode(ciphertext_b64)
+    iv = raw[:16]
+    ct = raw[16:]
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    pt = cipher.decrypt(ct)
+    pad_len = pt[-1]
+    return pt[:-pad_len].decode('utf-8')

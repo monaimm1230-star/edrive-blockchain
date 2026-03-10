@@ -1,0 +1,35 @@
+{
+  "balance": 9181884.0,
+  "txs": [
+    {
+      "id": "1435f300-1d8a-45b2-a45b-78075285f17d",
+      "from": "romaisa",
+      "to": "aqib",
+      "amount": 653.0,
+      "note": "bhookhe",
+      "ts": 1765536422350,
+      "direction": "debit"
+    },
+    {
+      "id": "6ca43c4d-7fc0-4e4d-864e-350748b6ee29",
+      "from": "romaisa",
+      "to": "aqib",
+      "amount": 656532.0,
+      "note": "kam kar vele apna",
+      "ts": 1765536587819,
+      "direction": "debit"
+    },
+    {
+      "id": "a060177c-d47f-4d94-82a2-5a4aff0102c8",
+      "from": "romaisa",
+      "to": "aqib",
+      "amount": 56563.0,
+      "note": "ajeeb",
+      "ts": 1765536744163,
+      "direction": "debit"
+    }
+  ],
+  "owner": "romaisa",
+  "prev_hash": null,
+  "node_hash": "8fea9a98caa01a6f39cc466fa6b0515f657cf49401c10f50dd38b1f8b32163cb"
+}

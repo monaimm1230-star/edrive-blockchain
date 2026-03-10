@@ -1,0 +1,15 @@
+{
+    "username": "burhan",
+    "balance": 65.0,
+    "txs": [
+        {
+            "id": "1bd6e511-e0d4-4622-afe3-bdb8caad0acc",
+            "from": "aqib",
+            "to": "burhan",
+            "amount": 65.0,
+            "note": "enj",
+            "ts": 1765559816269,
+            "direction": "credit"
+        }
+    ]
+}

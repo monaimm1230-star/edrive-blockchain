@@ -1,0 +1,26 @@
+{
+  "balance": 7.0,
+  "txs": [
+    {
+      "id": "42166ca1-a9c1-41fc-acc4-e9ca23aa620e",
+      "from": "sameera",
+      "to": "aqib",
+      "amount": 65659.0,
+      "note": "white karahi",
+      "ts": 1765537251209,
+      "direction": "debit"
+    },
+    {
+      "id": "f80f3623-d863-4f0f-9b30-5612288e0704",
+      "from": "sameera",
+      "to": "aqib",
+      "amount": 23.0,
+      "note": "20",
+      "ts": 1765537355889,
+      "direction": "debit"
+    }
+  ],
+  "owner": "sameera",
+  "prev_hash": null,
+  "node_hash": null
+}

@@ -1,0 +1,24 @@
+{
+    "username": "aqib",
+    "balance": 69766.0,
+    "txs": [
+        {
+            "id": "1bd6e511-e0d4-4622-afe3-bdb8caad0acc",
+            "from": "aqib",
+            "to": "burhan",
+            "amount": 65.0,
+            "note": "enj",
+            "ts": 1765559816269,
+            "direction": "debit"
+        },
+        {
+            "id": "26649ce3-a525-4394-a827-d1bbf859e811",
+            "from": "aqib",
+            "to": "anjali",
+            "amount": 25.0,
+            "note": "kj",
+            "ts": 1765564136425,
+            "direction": "debit"
+        }
+    ]
+}

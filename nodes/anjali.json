@@ -1,0 +1,17 @@
+{
+  "balance": 858589093.0,
+  "txs": [
+    {
+      "id": "2036c918-88d2-40da-9c31-bd9d8c371d55",
+      "from": "anjali",
+      "to": "aqib",
+      "amount": 565.0,
+      "note": "rahul",
+      "ts": 1765537532219,
+      "direction": "debit"
+    }
+  ],
+  "owner": "anjali",
+  "prev_hash": null,
+  "node_hash": null
+}

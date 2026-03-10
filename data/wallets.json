@@ -1,0 +1,326 @@
+{
+  "testbuyer@test.com": {
+    "username": "testbuyer@test.com",
+    "address": "EC-26AF0274376431B6",
+    "balance": 269.12,
+    "created_at": 1772561730,
+    "transactions": [
+      {
+        "tx_id": "cc5c13431fc6f089",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772561800,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "aefefc73f60f24ac",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772562406,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "b0e7600b4ad45998",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772562465,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "bc87099db390e778",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772644150,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "b009b15c82116d57",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772645157,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "0968073d79db7cd6",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772647533,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "e2d9d4e9c964e6c8",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772650300,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "dcdd16d45aa29692",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772650369,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "92e3cb6ecda9d8f2",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772650624,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "614762d5844ccea1",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772650739,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "c7d214a056f5f6b5",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772650745,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "cfc5ed4bff58a03f",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772825560,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "a6fb7a54a2634220",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1772826039,
+        "period": "off_peak"
+      }
+    ]
+  },
+  "testseller@test.com": {
+    "username": "testseller@test.com",
+    "address": "EC-852B4F1C00180330",
+    "balance": 748.36,
+    "created_at": 1772561800,
+    "transactions": [
+      {
+        "tx_id": "cc5c13431fc6f089",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772561800,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "aefefc73f60f24ac",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772562406,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "b0e7600b4ad45998",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772562465,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "bc87099db390e778",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772644150,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "b009b15c82116d57",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772645157,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "0968073d79db7cd6",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772647533,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "e2d9d4e9c964e6c8",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772650300,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "dcdd16d45aa29692",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772650369,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "92e3cb6ecda9d8f2",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772650624,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "614762d5844ccea1",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772650739,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "c7d214a056f5f6b5",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772650745,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "cfc5ed4bff58a03f",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772825560,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "a6fb7a54a2634220",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "testbuyer@test.com",
+        "timestamp": 1772826039,
+        "period": "off_peak"
+      },
+      {
+        "tx_id": "1ee69b031eaeaf60",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5.0,
+        "counterparty": "endtoend@test.com",
+        "timestamp": 1773162897,
+        "period": "off_peak"
+      }
+    ]
+  },
+  "buyer@test.com": {
+    "username": "buyer@test.com",
+    "address": "EC-85B114F5182BDE5B",
+    "balance": 482.24,
+    "created_at": 1772562714,
+    "transactions": [
+      {
+        "tx_id": "ff339359558ed270",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5,
+        "counterparty": "seller@test.com",
+        "timestamp": 1772562714,
+        "period": "off_peak"
+      }
+    ]
+  },
+  "seller@test.com": {
+    "username": "seller@test.com",
+    "address": "EC-BAF37C9FBED9D3BE",
+    "balance": 517.74,
+    "created_at": 1772562714,
+    "transactions": [
+      {
+        "tx_id": "ff339359558ed270",
+        "type": "credit",
+        "amount": 17.74,
+        "units": 5,
+        "counterparty": "buyer@test.com",
+        "timestamp": 1772562714,
+        "period": "off_peak"
+      }
+    ]
+  },
+  "buyer123@test.com": {
+    "username": "buyer123@test.com",
+    "address": "EC-2BD4A8D30AB3E7A7",
+    "balance": 1500.0,
+    "created_at": 1772648896,
+    "transactions": []
+  },
+  "monaim": {
+    "username": "monaim",
+    "address": "EC-EF2BD7338709DC3D",
+    "balance": 500,
+    "created_at": 1772827730,
+    "transactions": []
+  },
+  "endtoend@test.com": {
+    "username": "endtoend@test.com",
+    "address": "EC-5BB0C9314AE200D5",
+    "balance": 482.24,
+    "created_at": 1773162746,
+    "transactions": [
+      {
+        "tx_id": "1ee69b031eaeaf60",
+        "type": "debit",
+        "amount": 17.76,
+        "units": 5.0,
+        "counterparty": "testseller@test.com",
+        "timestamp": 1773162897,
+        "period": "off_peak"
+      }
+    ]
+  }
+}

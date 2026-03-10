@@ -1,0 +1,24 @@
+{
+    "owner": "ashiq",
+    "balance": 989566089.0,
+    "txs": [
+        {
+            "id": "9c885fe9-26fd-4ffa-9d76-a0b172824840",
+            "from": "klo",
+            "to": "ashiq",
+            "amount": 50.0,
+            "note": ".",
+            "ts": 1765569742316,
+            "direction": "credit"
+        },
+        {
+            "id": "bfe55d59-0f00-4a87-b61d-d10b166dcf1e",
+            "from": "klo",
+            "to": "ashiq",
+            "amount": 50.0,
+            "note": ".",
+            "ts": 1765569744840,
+            "direction": "credit"
+        }
+    ]
+}

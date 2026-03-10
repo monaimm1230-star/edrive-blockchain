@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockchain Viewer (Encrypted vs Decrypted)</title>
+  <style>
+    body{font-family: Inter, system-ui, Arial; margin:20px; background:#f7f9fb;}
+    .block{background:white;border-radius:8px;padding:12px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+    pre{background:#f3f4f6;padding:10px;border-radius:6px;overflow:auto}
+    .cols{display:flex;gap:16px}
+    .col{flex:1}
+    .tag{font-size:12px;color:#6b7280}
+  </style>
+</head>
+<body>
+  <h1>Blockchain Viewer (Encrypted vs Decrypted)</h1>
+  {% if error %}
+    <div style="color:crimson">Error: {{ error }}</div>
+  {% endif %}
+  <p><a href="/dashboard">Back to Dashboard</a></p>
+  {% for blk in chain_data %}
+    <div class="block">
+      <div><strong>Block {{ blk.index }}</strong> — miner: {{ blk.miner }} — hash: <span class="tag">{{ blk.hash }}</span></div>
+      <div class="cols" style="margin-top:8px">
+        <div class="col">
+          <h4>🔒 Encrypted Payload</h4>
+          <pre>{{ blk.encrypted_payload }}</pre>
+        </div>
+        <div class="col">
+          <h4>🔓 Decrypted Payload</h4>
+          <pre>{{ blk.decrypted_payload }}</pre>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  {% if not chain_data %}
+    <div>No chain data available (the app may not have an in-memory chain instance).</div>
+  {% endif %}
+</body>
+</html>

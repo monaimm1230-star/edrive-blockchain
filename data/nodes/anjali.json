@@ -1,0 +1,15 @@
+{
+    "username": "anjali",
+    "balance": 25.0,
+    "txs": [
+        {
+            "id": "26649ce3-a525-4394-a827-d1bbf859e811",
+            "from": "aqib",
+            "to": "anjali",
+            "amount": 25.0,
+            "note": "kj",
+            "ts": 1765564136425,
+            "direction": "credit"
+        }
+    ]
+}

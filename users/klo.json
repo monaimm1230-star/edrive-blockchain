@@ -1,0 +1,7 @@
+{
+    "username": "klo",
+    "display": "klo",
+    "password": "scrypt:32768:8:1$x9GFWBB7fVDu8v5a$db2f9182f193c38292fdbed65b4d791fee686199a76cc791c0641cd490b43430637584fa2573b86eb778a5743b22871d85f8cf4120d38dee8d99313e9d268056",
+    "balance": 9696.0,
+    "transactions": []
+}

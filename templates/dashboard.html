@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Drive Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    body { background: #0f172a; color: #e2e8f0; }
+    .card { background: #1e293b; border-radius: 12px; }
+    .hash { font-family: monospace; font-size: 12px; color: #38bdf8; word-break: break-all; }
+    .badge-buyer    { background:#1e40af; color:#bfdbfe; padding:2px 10px; border-radius:999px; font-size:11px; }
+    .badge-seller   { background:#065f46; color:#a7f3d0; padding:2px 10px; border-radius:999px; font-size:11px; }
+    .badge-off      { background:#164e63; color:#a5f3fc; padding:2px 10px; border-radius:999px; font-size:11px; }
+    .badge-peak     { background:#7c2d12; color:#fed7aa; padding:2px 10px; border-radius:999px; font-size:11px; }
+    .badge-shoulder { background:#3b0764; color:#e9d5ff; padding:2px 10px; border-radius:999px; font-size:11px; }
+    table thead th  { background:#0f172a; color:#94a3b8; font-size:12px; text-transform:uppercase; letter-spacing:.05em; padding:10px 16px; }
+    table tbody td  { padding:10px 16px; border-top:1px solid #334155; font-size:13px; }
+    table tbody tr:hover { background:#263348; }
+    input, select { background:#0f172a; border:1px solid #334155; color:#e2e8f0; border-radius:6px; padding:6px 10px; }
+    .btn-blue  { background:#2563eb; color:white; border-radius:6px; padding:7px 18px; font-weight:600; font-size:13px; cursor:pointer; }
+    .btn-green { background:#16a34a; color:white; border-radius:6px; padding:7px 18px; font-weight:600; font-size:13px; cursor:pointer; }
+    .btn-teal  { background:#0891b2; color:white; border-radius:6px; padding:7px 18px; font-weight:600; font-size:13px; cursor:pointer; }
+    .btn-red   { background:#dc2626; color:white; border-radius:6px; padding:7px 18px; font-weight:600; font-size:13px; cursor:pointer; }
+    .ec-debit  { color:#f87171; font-weight:600; }
+    .ec-credit { color:#34d399; font-weight:600; }
+    #toast { position:fixed; bottom:24px; right:24px; background:#0891b2; color:white; padding:12px 20px; border-radius:10px; display:none; z-index:999; font-size:14px; box-shadow:0 4px 20px rgba(0,0,0,0.4); }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<nav style="background:#1e293b; border-bottom:1px solid #334155;" class="px-6 py-3 flex justify-between items-center">
+  <div class="flex items-center gap-3">
+    <span style="font-weight:700; font-size:18px; color:white;">E-Drive</span>
+    <span style="color:#94a3b8; font-size:13px;">Blockchain Dashboard</span>
+  </div>
+  <div class="flex items-center gap-4">
+    <span style="color:#94a3b8; font-size:13px;">{{ user }}</span>
+    <a href="{{ url_for('logout') }}" class="btn-red" style="padding:5px 14px; font-size:12px; text-decoration:none;">Logout</a>
+  </div>
+</nav>
+
+<div class="px-6 py-6" style="max-width:1200px; margin:0 auto;">
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      {% if category == 'success' %}
+        <div style="padding:10px 16px; border-radius:8px; margin-bottom:16px; background:#064e3b; color:#6ee7b7;">{{ message }}</div>
+      {% elif category == 'error' %}
+        <div style="padding:10px 16px; border-radius:8px; margin-bottom:16px; background:#7f1d1d; color:#fca5a5;">{{ message }}</div>
+      {% else %}
+        <div style="padding:10px 16px; border-radius:8px; margin-bottom:16px; background:#1e3a5f; color:#93c5fd;">{{ message }}</div>
+      {% endif %}
+    {% endfor %}
+  {% endwith %}
+
+  <!-- Stats Row -->
+  <div class="grid gap-4 mb-6" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="card p-4">
+      <div style="color:#94a3b8; font-size:12px; margin-bottom:4px;">PKR Balance</div>
+      <div style="font-size:24px; font-weight:700; color:white;">Rs {{ node.balance }}</div>
+    </div>
+    <div class="card p-4">
+      <div style="color:#94a3b8; font-size:12px; margin-bottom:4px;">E-Credits (EC)</div>
+      <div style="font-size:24px; font-weight:700; color:#38bdf8;">{{ ec_balance }} EC</div>
+      <div style="color:#64748b; font-size:11px; margin-top:2px;">approx Rs {{ (ec_balance * 10)|int }}</div>
+    </div>
+    <div class="card p-4">
+      <div style="color:#94a3b8; font-size:12px; margin-bottom:4px;">Energy Trades</div>
+      <div style="font-size:24px; font-weight:700; color:#34d399;">{{ energy_trades|length }}</div>
+      <div style="color:#64748b; font-size:11px; margin-top:2px;">recorded on chain</div>
+    </div>
+    <div class="card p-4">
+      <div style="color:#94a3b8; font-size:12px; margin-bottom:4px;">Public Blocks</div>
+      <div style="font-size:24px; font-weight:700; color:#a78bfa;">{{ public_tail|length }}</div>
+      <div style="color:#64748b; font-size:11px; margin-top:2px;">last 10 shown</div>
+    </div>
+  </div>
+
+  {% if ec_address %}
+  <div class="card px-4 py-3 mb-6 flex items-center gap-3">
+    <span style="color:#94a3b8; font-size:13px;">Wallet:</span>
+    <span class="hash">{{ ec_address }}</span>
+  </div>
+  {% endif %}
+
+  <!-- Two Column Grid -->
+  <div class="grid gap-6 mb-6" style="grid-template-columns: 1fr 1fr;">
+
+    <!-- Left: Forms -->
+    <div>
+      <div class="card p-5 mb-4">
+        <h3 style="font-weight:700; margin-bottom:14px; color:white;">Add PKR Balance</h3>
+        <div class="flex gap-2">
+          <input type="number" id="bal-amount" step="0.01" placeholder="Amount (Rs)" style="flex:1;">
+          <button class="btn-blue" onclick="addBalance()">Add</button>
+        </div>
+      </div>
+
+      <div class="card p-5 mb-4">
+        <h3 style="font-weight:700; margin-bottom:14px; color:white;">Send Transaction</h3>
+        <div class="flex flex-col gap-3">
+          <select id="tx-to" style="width:100%;">
+            {% for u in users %}
+              {% if u != user %}
+                <option value="{{ u }}">{{ u }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          <input type="number" id="tx-amount" step="0.01" placeholder="Amount (Rs)" style="width:100%;">
+          <input type="text" id="tx-note" placeholder="Note (optional)" style="width:100%;">
+          <button class="btn-green" onclick="sendTx()">Send</button>
+        </div>
+      </div>
+
+      <div class="card p-5">
+        <h3 style="font-weight:700; margin-bottom:14px; color:white;">Add E-Credits</h3>
+        <div class="flex gap-2">
+          <input type="number" id="ec-amount" step="1" placeholder="EC amount" value="500" style="flex:1;">
+          <button class="btn-teal" onclick="topupEC()">Top Up</button>
+        </div>
+        <div style="color:#64748b; font-size:11px; margin-top:8px;">1 EC = Rs 10</div>
+      </div>
+    </div>
+
+    <!-- Right: EC Token History -->
+    <div class="card p-5">
+      <h3 style="font-weight:700; margin-bottom:14px; color:white;">EC Token History</h3>
+      {% if ec_txs %}
+      <div style="overflow-y:auto; max-height:340px;">
+        <table style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Counterparty</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for t in ec_txs %}
+            <tr>
+              <td>
+                {% if t.type == 'debit' %}
+                  <span class="badge-buyer">Sent</span>
+                {% elif t.type == 'credit' %}
+                  <span class="badge-seller">Received</span>
+                {% else %}
+                  <span style="color:#94a3b8;">{{ t.type }}</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if t.type == 'debit' %}
+                  <span class="ec-debit">-{{ t.amount }} EC</span>
+                {% else %}
+                  <span class="ec-credit">+{{ t.amount }} EC</span>
+                {% endif %}
+              </td>
+              <td style="color:#94a3b8; font-size:12px;">
+                {% if t.counterparty is defined %}{{ t.counterparty }}{% else %}—{% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div style="text-align:center; color:#64748b; padding:40px 0;">
+        <div style="font-size:32px; margin-bottom:8px;">📭</div>
+        No EC transactions yet
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Energy Trades -->
+  <div class="card p-5 mb-6">
+    <h3 style="font-weight:700; margin-bottom:14px; color:white;">Energy Trades — Blockchain Records</h3>
+    {% if energy_trades %}
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th>TX ID</th>
+            <th>Buyer</th>
+            <th>Seller</th>
+            <th>Units</th>
+            <th>EC Paid</th>
+            <th>Period</th>
+            <th>Block</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in energy_trades %}
+          <tr>
+            <td class="hash">{{ t.tx_id[:12] }}...</td>
+            <td style="font-size:12px;">
+              {% if t.buyer == user %}
+                <strong style="color:white;">{{ t.buyer }}</strong>
+              {% else %}
+                <span style="color:#94a3b8;">{{ t.buyer }}</span>
+              {% endif %}
+            </td>
+            <td style="font-size:12px;">
+              {% if t.seller == user %}
+                <strong style="color:white;">{{ t.seller }}</strong>
+              {% else %}
+                <span style="color:#94a3b8;">{{ t.seller }}</span>
+              {% endif %}
+            </td>
+            <td style="color:#a78bfa; font-weight:600;">{{ t.units }}</td>
+            <td style="color:#34d399; font-weight:600;">{{ t.ec_amount }} EC</td>
+            <td>
+              {% if t.period == 'off_peak' %}
+                <span class="badge-off">Off-Peak</span>
+              {% elif t.period == 'peak' %}
+                <span class="badge-peak">Peak</span>
+              {% else %}
+                <span class="badge-shoulder">Shoulder</span>
+              {% endif %}
+            </td>
+            <td style="color:#94a3b8;">#{{ t.block_index }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div style="text-align:center; color:#64748b; padding:40px 0;">
+      <div style="font-size:32px; margin-bottom:8px;">🔋</div>
+      No energy trades yet. Use the mobile app to trade!
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Public Chain Explorer -->
+  <div class="card p-5">
+    <h3 style="font-weight:700; margin-bottom:14px; color:white;">Public Chain — Recent Blocks</h3>
+    {% if public_tail %}
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th>Block</th>
+            <th>Hash</th>
+            <th>Prev Hash</th>
+            <th>Miner</th>
+            <th>Txs</th>
+            <th>Nonce</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for block in public_tail %}
+          <tr>
+            <td style="font-weight:700; color:#a78bfa;">#{{ block.index }}</td>
+            <td class="hash">
+              {% if block.curr_hash %}{{ block.curr_hash[:20] }}...{% else %}—{% endif %}
+            </td>
+            <td class="hash">
+              {% if block.prev_hash %}{{ block.prev_hash[:16] }}...{% else %}—{% endif %}
+            </td>
+            <td style="color:#94a3b8; font-size:12px;">
+              {% if block.miner is defined %}{{ block.miner }}{% else %}—{% endif %}
+            </td>
+            <td style="color:#34d399;">
+              {% if block.data and block.data.transactions %}
+                {{ block.data.transactions|length }}
+              {% else %}
+                0
+              {% endif %}
+            </td>
+            <td style="color:#64748b;">
+              {% if block.nonce is defined %}{{ block.nonce }}{% else %}—{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div style="text-align:center; color:#64748b; padding:24px;">No blocks mined yet</div>
+    {% endif %}
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.emit('join', { username: "{{ user }}" });
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, 3500);
+  }
+
+  socket.on('balance_added', (data) => {
+    showToast(data.message);
+    setTimeout(() => location.reload(), 1200);
+  });
+  socket.on('tx', (data) => {
+    showToast(data.message);
+    setTimeout(() => location.reload(), 1200);
+  });
+  socket.on('tx_failed', (data) => showToast('Failed: ' + data.message));
+
+  async function addBalance() {
+    const amt = document.getElementById('bal-amount').value;
+    const res = await fetch('/add_balance', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({amount: amt})
+    });
+    const r = await res.json();
+    if (r.ok) showToast('Balance added!');
+    else showToast('Error: ' + r.error);
+  }
+
+  async function sendTx() {
+    const res = await fetch('/tx', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        to_user: document.getElementById('tx-to').value,
+        amount: document.getElementById('tx-amount').value,
+        note: document.getElementById('tx-note').value
+      })
+    });
+    const r = await res.json();
+    if (r.ok) showToast('Transaction sent!');
+    else showToast('Error: ' + r.error);
+  }
+
+  async function topupEC() {
+    const amt = document.getElementById('ec-amount').value;
+    const res = await fetch('/api/wallet/topup', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: "{{ user }}", amount_ec: parseFloat(amt)})
+    });
+    const r = await res.json();
+    if (r.success) {
+      showToast('Added ' + amt + ' EC! New balance: ' + r.new_balance + ' EC');
+      setTimeout(() => location.reload(), 1500);
+    } else {
+      showToast('Error: ' + r.error);
+    }
+  }
+</script>
+</body>
+</html>
+```

@@ -1,0 +1,26 @@
+{
+  "balance": 594770.0,
+  "txs": [
+    {
+      "id": "9b32f3b2-0709-4b2e-8050-fb4ffd49e551",
+      "from": "urwa",
+      "to": "aqib",
+      "amount": 6562.0,
+      "note": "0",
+      "ts": 1765536882810,
+      "direction": "debit"
+    },
+    {
+      "id": "4ef6bfa7-b6ea-4c6a-aded-22cd76e166ba",
+      "from": "urwa",
+      "to": "aqib",
+      "amount": 55233.0,
+      "note": "6",
+      "ts": 1765537009585,
+      "direction": "debit"
+    }
+  ],
+  "owner": "urwa",
+  "prev_hash": null,
+  "node_hash": "f166eb07233e48da53fc0fdef84f9f7e1a1fd72ffb6bd1c8877ff0e04e79dda9"
+}
